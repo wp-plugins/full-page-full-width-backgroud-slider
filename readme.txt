@@ -1,4 +1,4 @@
-=== Notification Bar===
+=== Full Page/ Full width Background Slider===
 Contributors: rahulbrilliant2004, tikendramaitry, Nishant Jain
 Donate link: http://www.wpfruits.com
 Tags: background slider, slider, full page background slider, set background full page
