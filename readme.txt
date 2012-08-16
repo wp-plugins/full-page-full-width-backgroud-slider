@@ -1,0 +1,73 @@
+=== Notification Bar===
+Contributors: rahulbrilliant2004, tikendramaitry, Nishant Jain
+Donate link: http://www.wpfruits.com
+Tags: background slider, slider, full page background slider, set background full page
+Requires at least: 2.8
+Tested up to: 3.4
+Stable tag: 1.0
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+A plugin that allows you to add full page background slider to your website with a lots of custom features.    
+
+== Description ==
+A great plugin that allows you to add full page background slider to your website with a lots of custom features.
+ -   Adds full page slider to use to your website.
+ -   You can add up to 6 images to the slider.
+ -   You can add single full page background image to your site.
+ -   You can add different slider to different pages of the website.
+ -   Easily manageable back-end.
+ -   Comes with 6 Great Backgrounds ready to use
+ -   Last but not the least its FREE
+
+
+Read more instructions about how to use here http://www.wpfruits.com/downloads/wp-plugins/full-page-full-width-background-slider-plugin-for-wordpress/
+
+=Features  =
+ -   Adds full page slider to use to your website.
+ -   You can add up to 6 images to the slider.
+ -   You can add single full page background image to your site.
+ -   You can add different slider to different pages of the website.
+ -   Easily manageable back-end.
+ -   Comes with 6 Great Backgrounds ready to use
+ -   Last but not the least its FREE
+
+
+== Installation ==
+    
+   -Upload the plugin folder to the /wp-content/plugins/ folder of your wordpress installation.
+   -Activate the plugin. 
+   -You will see an option at the left bottom of the wordpress options in the left sidebar.
+http://www.wpfruits.com/wp-content/uploads/2012/08/Full-page-background-Slider-settings.png
+   -Click on it to set the options
+   -Then just add the url path for the images in the panel. Please See this images will slide on the background of full website. If you want to just add one image to the background then just add the first image in the panel.
+http://www.wpfruits.com/wp-content/uploads/2012/08/full-page-back-ground-slider-admin-settings.png
+   -Now if you want to add slider to a particular page or post then you will see the same panel at the bottom of the post box.
+   -So you can disbaled the slider for a particular post or page or you can enable it just for the post of page or if you want to add a single image to the background of the page just enter one value in the first box.
+http://www.wpfruits.com/wp-content/uploads/2012/08/Full-page-background-slider.png
+
+
+
+For More Details please visit http://www.wpfruits.com/downloads/wp-plugins/full-page-full-width-background-slider-plugin-for-wordpress/
+
+== Frequently asked questions ==
+
+= A question that someone might have =
+
+An answer to that question.
+
+== Screenshots ==
+http://www.wpfruits.com/wp-content/uploads/2012/08/Full-page-background-Slider-settings.png
+http://www.wpfruits.com/wp-content/uploads/2012/08/full-page-back-ground-slider-admin-settings.png
+http://www.wpfruits.com/wp-content/uploads/2012/08/Full-page-background-slider.png
+
+== Changelog ==
+
+
+
+== Upgrade notice ==
+
+
+
+== Arbitrary section 1 ==
+

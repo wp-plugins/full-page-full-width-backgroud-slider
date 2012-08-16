@@ -1,0 +1,35 @@
+
+#fwbslider_post_metas {
+	font-family:verdana;
+}
+
+#fwbslider_post_metas  #fwbslider_update{
+	margin-left:145px;
+}
+
+#fwbslider_post_metas .fwbslider_form{
+	width:700px;
+}
+
+#fwbslider_post_metas  span.desc{
+	line-height:20px;
+}
+
+#fwbslider_post_metas h3.hndle span{
+    font-family: fantasy;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#fwbslider_post_metas   table{
+	margin-top:10px;
+	width:100%;
+}
+
+#fwbslider_post_metas   table td{
+	padding:10px 0;
+}
+
+#fwbslider_post_metas   table input[type="text"]{
+	width:400px;
+}
