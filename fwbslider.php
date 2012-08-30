@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name:Full Width Background Slider
-Plugin URI: 
+Plugin URI: http://www.wpfruits.com/downloads/wp-plugins/full-page-full-width-background-slider-plugin-for-wordpress/
 Description: This plugin will generate full width background slider for individual page and post with the help of custom fields..
 Author: Nishant Jain, rahulbrilliant2004, tikendramaitry
-Version: 1.0
-Author URI: http://www.wpfruits.com
+Version: 1.0.3
+Author URI: http://www.wpfruits.com/
 */
 // ----------------------------------------------------------------------------------
 
@@ -218,6 +218,8 @@ function fwbslider(){
 		$fwbslide5_all = $options["fwbslide5"];
 		$fwbslide6_all = $options["fwbslide6"];
 		
+		$from_this = "http://www.wpfruits.com/downloads/wp-plugins/full-page-full-width-background-slider-plugin-for-wordpress/?utm_refs=".$_SERVER['HTTP_REFERER'];
+
 	if($fwb_check && !$fwb_disable){
 	?>
 	<script type="text/javascript">
@@ -225,6 +227,7 @@ function fwbslider(){
 			jQuery.fwbslider('#fwbslider', {'delay':5000, 'fadeSpeed': 2000});
 		});
 	</script>
+	<!-- FWB Slider Start here -->
 	<div id="fwbslider" class="for_only">
 			<?php if($fwbslide1){ ?><img src="<?php echo $fwbslide1; ?>" /><?php } ?>
 			<?php if($fwbslide2){ ?><img src="<?php echo $fwbslide2; ?>" /><?php } ?>
@@ -233,6 +236,8 @@ function fwbslider(){
 			<?php if($fwbslide5){ ?><img src="<?php echo $fwbslide5; ?>" /><?php } ?>
 			<?php if($fwbslide6){ ?><img src="<?php echo $fwbslide6; ?>" /><?php } ?>
 	</div>
+	<a class="fwb_fromthis" target="_blank" href="<?php echo $from_this; ?>" title=""><img src="<?php echo plugins_url('images/FWB-big.png',__FILE__) ?>" /></a>
+	<!-- FWB Slider End here -->
 	<?php
 	}
 	
@@ -243,6 +248,7 @@ function fwbslider(){
 				jQuery.fwbslider('#fwbslider', {'delay':5000, 'fadeSpeed': 2000});
 			});
 		</script>
+		<!-- FWB Slider Start here -->
 		<div id="fwbslider" class="for_all">
 				<?php if($fwbslide1_all){ ?><img src="<?php echo $fwbslide1_all; ?>" /><?php } ?>
 				<?php if($fwbslide2_all){ ?><img src="<?php echo $fwbslide2_all; ?>" /><?php } ?>
@@ -251,6 +257,8 @@ function fwbslider(){
 				<?php if($fwbslide5_all){ ?><img src="<?php echo $fwbslide5_all; ?>" /><?php } ?>
 				<?php if($fwbslide6_all){ ?><img src="<?php echo $fwbslide6_all; ?>" /><?php } ?>
 		</div>
+		<a class="fwb_fromthis" target="_blank" href="<?php echo $from_this; ?>" title=""><img src="<?php echo plugins_url('images/FWB-big.png',__FILE__) ?>" /></a>
+		<!-- FWB Slider End here -->
 	<?php
 	}
 }
