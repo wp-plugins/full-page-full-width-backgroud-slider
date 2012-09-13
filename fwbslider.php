@@ -218,7 +218,7 @@ function fwbslider(){
 		$fwbslide5_all = $options["fwbslide5"];
 		$fwbslide6_all = $options["fwbslide6"];
 		
-		$from_this = "http://www.wpfruits.com/downloads/wp-plugins/full-page-full-width-background-slider-plugin-for-wordpress/?utm_refs=".$_SERVER['HTTP_REFERER'];
+		$from_this = "http://www.wpfruits.com/downloads/wp-plugins/full-page-full-width-background-slider-plugin-for-wordpress/?utm_refs=".$_SERVER['SERVER_NAME'];
 
 	if($fwb_check && !$fwb_disable){
 	?>
