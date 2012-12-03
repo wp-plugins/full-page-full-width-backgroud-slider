@@ -4,7 +4,7 @@ Donate link: http://www.wpfruits.com
 Tags: background slider, slider, full page background slider, set background full page
 Requires at least: 2.8
 Tested up to: 3.4
-Stable tag: 1.0.3
+Stable tag: 1.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -65,6 +65,9 @@ http://www.wpfruits.com/wp-content/uploads/2012/08/Full-page-background-slider.p
 Version 1.0.3
 Fixed some issues with jquery. 
 
+Version 1.0.7
+Added browse button to add the slide images.
+Updated the slider admin panel look.
 
 == Upgrade notice ==
 Please upgrade quickly

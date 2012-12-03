@@ -31,6 +31,22 @@ jQuery("#fwbslider_post_metas #fwb_disable").click(function(){
 	}
 });
 
+	/*-------------------------------------------*/
+	/*-- Upload image jquery start --------------*/
+	/*-------------------------------------------*/
+
+	    jQuery('.fwb_uploadbtn').click(function() {
+	         targetfield = jQuery(this).prev('.fwb_uploadimg');
+	         tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
+	         return false;
+	    });
+	    window.send_to_editor = function(html) {
+	         imgurl = jQuery('img',html).attr('src');
+	         jQuery(targetfield).val(imgurl);
+	         tb_remove();
+	    }
+	/*-------------------------------------------*/
+	/*-------------------------------------------*/
 
 });
 
