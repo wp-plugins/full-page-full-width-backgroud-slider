@@ -4,7 +4,7 @@ Plugin Name:Full Width Background Slider
 Plugin URI: http://www.wpfruits.com/downloads/wp-plugins/full-page-full-width-background-slider-plugin-for-wordpress/
 Description: This plugin will generate full width background slider for individual page and post with the help of custom fields..
 Author: Nishant Jain, rahulbrilliant2004, tikendramaitry
-Version: 1.0.7
+Version: 1.0.9
 Author URI: http://www.wpfruits.com/
 */
 // ----------------------------------------------------------------------------------
@@ -144,31 +144,30 @@ wp_nonce_field('update-options'); $options = get_option('fwbslider_options');
 						</td>
 					</tr>
 				
-					<tr><th><label><?php _e('FWB Slide1 URL','fwbslider'); ?></label></th><td><input type="text" class="fwb_uploadimg" name="fwbslider_options[fwbslide1]" value="<?php echo $options['fwbslide1'] ?>" /><input class="fwb_uploadbtn" type="button" value="Browse.." /></td></tr>
-					<tr><th><label><?php _e('FWB Slide2 URL','fwbslider'); ?></label></th><td><input type="text" class="fwb_uploadimg" name="fwbslider_options[fwbslide2]" value="<?php echo $options['fwbslide2'] ?>" /><input class="fwb_uploadbtn" type="button" value="Browse.." /></td></tr>
-					<tr><th><label><?php _e('FWB Slide3 URL','fwbslider'); ?></label></th><td><input type="text" class="fwb_uploadimg" name="fwbslider_options[fwbslide3]" value="<?php echo $options['fwbslide3'] ?>" /><input class="fwb_uploadbtn" type="button" value="Browse.." /></td></tr>
-					<tr><th><label><?php _e('FWB Slide4 URL','fwbslider'); ?></label></th><td><input type="text" class="fwb_uploadimg" name="fwbslider_options[fwbslide4]" value="<?php echo $options['fwbslide4'] ?>" /><input class="fwb_uploadbtn" type="button" value="Browse.." /></td></tr>
-					<tr><th><label><?php _e('FWB Slide5 URL','fwbslider'); ?></label></th><td><input type="text" class="fwb_uploadimg" name="fwbslider_options[fwbslide5]" value="<?php echo $options['fwbslide5'] ?>" /><input class="fwb_uploadbtn" type="button" value="Browse.." /></td></tr>
-					<tr><th><label><?php _e('FWB Slide6 URL','fwbslider'); ?></label></th><td><input type="text" class="fwb_uploadimg" name="fwbslider_options[fwbslide6]" value="<?php echo $options['fwbslide6'] ?>" /><input class="fwb_uploadbtn" type="button" value="Browse.." /></td></tr>
+					<tr><th><label><?php _e('FWB Slide1 URL','fwbslider'); ?></label></th><td><input type="text" class="fwb_uploadimg" name="fwbslider_options[fwbslide1]" value="<?php echo $options['fwbslide1'] ?>" /><input class="fwb_uploadbtn button" type="button" value="Browse.." /></td></tr>
+					<tr><th><label><?php _e('FWB Slide2 URL','fwbslider'); ?></label></th><td><input type="text" class="fwb_uploadimg" name="fwbslider_options[fwbslide2]" value="<?php echo $options['fwbslide2'] ?>" /><input class="fwb_uploadbtn button" type="button" value="Browse.." /></td></tr>
+					<tr><th><label><?php _e('FWB Slide3 URL','fwbslider'); ?></label></th><td><input type="text" class="fwb_uploadimg" name="fwbslider_options[fwbslide3]" value="<?php echo $options['fwbslide3'] ?>" /><input class="fwb_uploadbtn button" type="button" value="Browse.." /></td></tr>
+					<tr><th><label><?php _e('FWB Slide4 URL','fwbslider'); ?></label></th><td><input type="text" class="fwb_uploadimg" name="fwbslider_options[fwbslide4]" value="<?php echo $options['fwbslide4'] ?>" /><input class="fwb_uploadbtn button" type="button" value="Browse.." /></td></tr>
+					<tr><th><label><?php _e('FWB Slide5 URL','fwbslider'); ?></label></th><td><input type="text" class="fwb_uploadimg" name="fwbslider_options[fwbslide5]" value="<?php echo $options['fwbslide5'] ?>" /><input class="fwb_uploadbtn button" type="button" value="Browse.." /></td></tr>
+					<tr><th><label><?php _e('FWB Slide6 URL','fwbslider'); ?></label></th><td><input type="text" class="fwb_uploadimg" name="fwbslider_options[fwbslide6]" value="<?php echo $options['fwbslide6'] ?>" /><input class="fwb_uploadbtn button" type="button" value="Browse.." /></td></tr>
 					
 					<tr>
 						<td colspan="2">
 						<table class="fwb_proFeature" cellpadding="0" cellspacing="0">
 						<tr><th colspan="2"><?php _e('These Features comes with PRO Version. To activate, please purchase PRO version.','fwbslider'); ?> <a href="http://www.wpfruits.com/full-width-background-slider/?fwb_ref=back" target="_blank"><?php _e('Click Here to Purchase Plugin.','fwbslider'); ?></a></th></tr>
 						
-						<tr><th><label><?php _e('FWB Slide7 URL:','fwbslider'); ?></label></th><td><input type="text" /><input type="button" value="Browse.." /></td></tr>
-						<tr><th><label><?php _e('FWB Slide8 URL:','fwbslider'); ?></label></th><td><input type="text" /><input type="button" value="Browse.." /></td></tr>
-						<tr><th><label><?php _e('FWB Slide9 URL:','fwbslider'); ?></label></th><td><input type="text" /><input type="button" value="Browse.." /></td></tr>
-						<tr><th><label><?php _e('FWB Slide10 URL:','fwbslider'); ?></label></th><td><input type="text" /><input type="button" value="Browse.." /></td></tr>
-						</table>
-						</td>
+						<tr><th><label><?php _e('FWB Slide7 URL:','fwbslider'); ?></label></th><td><input type="text" /><input type="button" class="button" value="Browse.." /></td></tr>
+						<tr><th><label><?php _e('FWB Slide8 URL:','fwbslider'); ?></label></th><td><input type="text" /><input type="button" class="button" value="Browse.." /></td></tr>
+						<tr><th><label><?php _e('FWB Slide9 URL:','fwbslider'); ?></label></th><td><input type="text" /><input type="button" class="button" value="Browse.." /></td></tr>
+						<tr><th><label><?php _e('FWB Slide10 URL:','fwbslider'); ?></label></th><td><input type="text" /><input type="button" class="button" value="Browse.." /></td></tr>
+						</table>                                                                                                             
 					</tr>
 				
 				</table>	
 				 
 	 
 				<p class="button-controls">
-					<input type="submit" value="<?php _e('Save') ?>" class="button-primary" id="fwbslider_update" name="fwbslider_update">	
+					<input type="submit" value="<?php _e('Save Settings') ?>" class="button-primary" id="fwbslider_update" name="fwbslider_update">	
 				</p>
 			</form>
 		</div>
@@ -220,7 +219,7 @@ function fwbslider_post_meta_box_add()
 	
 		<div class="fwbslider_checkbox">
 			<input type="checkbox" class="fwbslider_post" name="fwb_check" id="fwb_check" <?php if($fwb_check){ ?> checked <?php } ?> value="true"/>&nbsp;
-			<label for="fwb_check"><?php _e('Add this post/page to "FWB Slider"..'); ?> </label>
+			<label for="fwb_check"><?php _e('Add "FWB Slider" to this post/page..'); ?> </label>
 		</div>
 			
 		<div class="fwbslider_table fwbslide_wrap">
@@ -254,22 +253,22 @@ function fwbslider_post_meta_box_add()
 				</td>
 			</tr>
 		
-			<tr><th width="140px" align="right" ><label><?php _e('FWB Slide1 URL'); ?></label></th><td><input type="text" name="fwbslide1" class="fwb_uploadimg" value="<?php echo $fwbslide1; ?>" /><input class="fwb_uploadbtn" type="button" value="Browse.." /></td></tr>				
-			<tr><th width="140px" align="right" ><label><?php _e('FWB Slide2 URL'); ?></label></th><td><input type="text" name="fwbslide2" class="fwb_uploadimg" value="<?php echo $fwbslide2; ?>" /><input class="fwb_uploadbtn" type="button" value="Browse.." /></td></tr>				
-			<tr><th width="140px" align="right" ><label><?php _e('FWB Slide3 URL'); ?></label></th><td><input type="text" name="fwbslide3" class="fwb_uploadimg" value="<?php echo $fwbslide3; ?>" /><input class="fwb_uploadbtn" type="button" value="Browse.." /></td></tr>				
-			<tr><th width="140px" align="right" ><label><?php _e('FWB Slide4 URL'); ?></label></th><td><input type="text" name="fwbslide4" class="fwb_uploadimg" value="<?php echo $fwbslide4; ?>" /><input class="fwb_uploadbtn" type="button" value="Browse.." /></td></tr>				
-			<tr><th width="140px" align="right" ><label><?php _e('FWB Slide5 URL'); ?></label></th><td><input type="text" name="fwbslide5" class="fwb_uploadimg" value="<?php echo $fwbslide5; ?>" /><input class="fwb_uploadbtn" type="button" value="Browse.." /></td></tr>				
-			<tr><th width="140px" align="right" ><label><?php _e('FWB Slide6 URL'); ?></label></th><td><input type="text" name="fwbslide6" class="fwb_uploadimg" value="<?php echo $fwbslide6; ?>" /><input class="fwb_uploadbtn" type="button" value="Browse.." /></td></tr>				
+			<tr><th width="140px" align="right" ><label><?php _e('FWB Slide1 URL'); ?></label></th><td><input type="text" name="fwbslide1" class="fwb_uploadimg" value="<?php echo $fwbslide1; ?>" /><input class="fwb_uploadbtn button" type="button" value="Browse.." /></td></tr>				
+			<tr><th width="140px" align="right" ><label><?php _e('FWB Slide2 URL'); ?></label></th><td><input type="text" name="fwbslide2" class="fwb_uploadimg" value="<?php echo $fwbslide2; ?>" /><input class="fwb_uploadbtn button" type="button" value="Browse.." /></td></tr>				
+			<tr><th width="140px" align="right" ><label><?php _e('FWB Slide3 URL'); ?></label></th><td><input type="text" name="fwbslide3" class="fwb_uploadimg" value="<?php echo $fwbslide3; ?>" /><input class="fwb_uploadbtn button" type="button" value="Browse.." /></td></tr>				
+			<tr><th width="140px" align="right" ><label><?php _e('FWB Slide4 URL'); ?></label></th><td><input type="text" name="fwbslide4" class="fwb_uploadimg" value="<?php echo $fwbslide4; ?>" /><input class="fwb_uploadbtn button" type="button" value="Browse.." /></td></tr>				
+			<tr><th width="140px" align="right" ><label><?php _e('FWB Slide5 URL'); ?></label></th><td><input type="text" name="fwbslide5" class="fwb_uploadimg" value="<?php echo $fwbslide5; ?>" /><input class="fwb_uploadbtn button" type="button" value="Browse.." /></td></tr>				
+			<tr><th width="140px" align="right" ><label><?php _e('FWB Slide6 URL'); ?></label></th><td><input type="text" name="fwbslide6" class="fwb_uploadimg" value="<?php echo $fwbslide6; ?>" /><input class="fwb_uploadbtn button" type="button" value="Browse.." /></td></tr>				
 					
 			<tr>
 				<td colspan="2">
 				<table class="fwb_proFeature" cellpadding="0" cellspacing="0">
 				<tr><th colspan="2"><?php _e('These Features comes with PRO Version. To activate, please purchase PRO version.','fwbslider'); ?> <a href="http://www.wpfruits.com/full-width-background-slider/?fwb_ref=back" target="_blank"><?php _e('Click Here to Purchase Plugin.','fwbslider'); ?></a></th></tr>
 				
-				<tr><th><label><?php _e('FWB Slide7 URL:','fwbslider'); ?></label></th><td><input type="text" /><input type="button" value="Browse.." /></td></tr>
-				<tr><th><label><?php _e('FWB Slide8 URL:','fwbslider'); ?></label></th><td><input type="text" /><input type="button" value="Browse.." /></td></tr>
-				<tr><th><label><?php _e('FWB Slide9 URL:','fwbslider'); ?></label></th><td><input type="text" /><input type="button" value="Browse.." /></td></tr>
-				<tr><th><label><?php _e('FWB Slide10 URL:','fwbslider'); ?></label></th><td><input type="text" /><input type="button" value="Browse.." /></td></tr>
+				<tr><th><label><?php _e('FWB Slide7 URL:','fwbslider'); ?></label></th><td><input type="text" /><input type="button" class="button"  value="Browse.." /></td></tr>
+				<tr><th><label><?php _e('FWB Slide8 URL:','fwbslider'); ?></label></th><td><input type="text" /><input type="button" class="button"  value="Browse.." /></td></tr>
+				<tr><th><label><?php _e('FWB Slide9 URL:','fwbslider'); ?></label></th><td><input type="text" /><input type="button" class="button"  value="Browse.." /></td></tr>
+				<tr><th><label><?php _e('FWB Slide10 URL:','fwbslider'); ?></label></th><td><input type="text" /><input type="button" class="button" value="Browse.." /></td></tr>
 				</table>
 				</td>
 			</tr>
@@ -327,7 +326,7 @@ function fwbslider(){
 		$fwbslide5_all = $options["fwbslide5"];
 		$fwbslide6_all = $options["fwbslide6"];
 		
-		$from_this = "http://www.wpfruits.com/full-width-background-slider/?utm_refs=".$_SERVER['HTTP_REFERER'];
+		$from_this = "http://wpfruits.com/full-width-background-slider/?utm_refs=".$_SERVER['HTTP_REFERER'];
 
 	if($fwb_check && !$fwb_disable){
 	?>

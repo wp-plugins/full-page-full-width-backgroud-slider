@@ -6,7 +6,6 @@
             'fadeSpeed': 500
         };
         if ( settings ){$.extend(config, settings);}
- 
         // variables
         var obj = $(selector);
         var slide = obj.find('img');
