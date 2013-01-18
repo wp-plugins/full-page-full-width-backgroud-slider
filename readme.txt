@@ -3,8 +3,8 @@ Contributors: rahulbrilliant2004, tikendramaitry, Nishant Jain
 Donate link: http://www.wpfruits.com
 Tags: background slider, slider, full page background slider, set background full page
 Requires at least: 2.8
-Tested up to: 3.4
-Stable tag: 1.0.9
+Tested up to: 3.5
+Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,7 +23,7 @@ A great plugin that allows you to add full page background slider to your websit
 
 Read more instructions about how to use here http://www.wpfruits.com/downloads/wp-plugins/full-page-full-width-background-slider-plugin-for-wordpress/
 
-=Features  =
+= Features =
  -   Adds full page slider to use to your website.
  -   You can add up to 6 images to the slider.
  -   You can add single full page background image to your site.
@@ -57,9 +57,9 @@ For More Details please visit http://www.wpfruits.com/downloads/wp-plugins/full-
 An answer to that question.
 
 == Screenshots ==
-http://www.wpfruits.com/wp-content/uploads/2012/08/Full-page-background-Slider-settings.png
-http://www.wpfruits.com/wp-content/uploads/2012/08/full-page-back-ground-slider-admin-settings.png
-http://www.wpfruits.com/wp-content/uploads/2012/08/Full-page-background-slider.png
+1. Menu Option.
+2. Admin Settings Page.
+3. Post/Page Setting Options.
 
 == Changelog ==
 Version 1.0.3
@@ -71,6 +71,11 @@ Updated the slider admin panel look.
 
 Version 1.0.9
 Fixed Media upload image issue with wordpress 3.5 version
+
+Version 2.0.1
+Added Slider background color option in admin panel.
+Fixed some issues with wordpress 3.5 version.
+
 
 == Upgrade notice ==
 Please upgrade quickly
