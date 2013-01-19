@@ -4,7 +4,7 @@ Donate link: http://www.wpfruits.com
 Tags: background slider, slider, full page background slider, set background full page
 Requires at least: 2.8
 Tested up to: 3.5
-Stable tag: 2.0.1
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -72,7 +72,7 @@ Updated the slider admin panel look.
 Version 1.0.9
 Fixed Media upload image issue with wordpress 3.5 version
 
-Version 2.0.1
+Version 1.1.0
 Added Slider background color option in admin panel.
 Fixed some issues with wordpress 3.5 version.
 
