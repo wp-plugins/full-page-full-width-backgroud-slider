@@ -31,8 +31,9 @@ Read more instructions about how to use here http://www.wpfruits.com/downloads/w
  -   Easily manageable back-end.
  -   Comes with 6 Great Backgrounds ready to use
  -   Last but not the least its FREE
+ -   NEW - Set Background color for posts and pages. Now instead of image you can set the background color for the image too. 
 
-This is a Plugin from <a href="http://www.wpfruits.com/?ref=wpl">WPFRUITS </a>
+This is a Plugin from <a href="http://www.wpfruits.com/?ref=wpl"> WPFRUITS </a>
 
 == Installation ==
     
