@@ -1,7 +1,7 @@
 === Full Page/ Full width Background Slider===
 Contributors: rahulbrilliant2004, tikendramaitry, Nishant Jain
 Donate link: http://www.wpfruits.com
-Tags: background slider, slider, full page background slider, set background full page
+Tags: background image slider, full with image slider, Wordpress Full width Background slider plugin, full page background slider, set background full page, Full width Background Image set, Set background Color for Page
 Requires at least: 2.8
 Tested up to: 3.5
 Stable tag: 1.1.0
@@ -32,6 +32,7 @@ Read more instructions about how to use here http://www.wpfruits.com/downloads/w
  -   Comes with 6 Great Backgrounds ready to use
  -   Last but not the least its FREE
 
+This is a Plugin from <a href="http://www.wpfruits.com/?ref=wpl">WPFRUITS </a>
 
 == Installation ==
     
