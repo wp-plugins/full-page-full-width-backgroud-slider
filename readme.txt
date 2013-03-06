@@ -35,6 +35,8 @@ Read more instructions about how to use here http://www.wpfruits.com/downloads/w
 
 This is a Plugin from <a href="http://www.wpfruits.com/?ref=wpl"> WPFRUITS </a>
 
+You can also try our Full Width Background Slider Wordpress theme <a title="Analytical full Width Slider WordPress theme" href="http://www.sketchthemes.com/themes/analytical-full-width-responsive-wordpress-theme/?ref=wp"> Analytical full Width Slider WordPress theme</a> 
+
 == Installation ==
     
    -Upload the plugin folder to the /wp-content/plugins/ folder of your wordpress installation.
