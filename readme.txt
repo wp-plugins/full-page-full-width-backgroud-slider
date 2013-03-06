@@ -50,6 +50,7 @@ http://www.wpfruits.com/wp-content/uploads/2012/08/full-page-back-ground-slider-
    -So you can disbaled the slider for a particular post or page or you can enable it just for the post of page or if you want to add a single image to the background of the page just enter one value in the first box.
 http://www.wpfruits.com/wp-content/uploads/2012/08/Full-page-background-slider.png
 
+You can also try our Full Width Background Slider Wordpress theme <a title="Analytical full Width Slider WordPress theme" href="http://www.sketchthemes.com/themes/analytical-full-width-responsive-wordpress-theme/?ref=wp"> Analytical full Width Slider WordPress theme</a> 
 
 
 For More Details please visit http://www.wpfruits.com/downloads/wp-plugins/full-page-full-width-background-slider-plugin-for-wordpress/
@@ -79,6 +80,8 @@ Fixed Media upload image issue with wordpress 3.5 version
 Version 1.1.0
 Added Slider background color option in admin panel.
 Fixed some issues with wordpress 3.5 version.
+
+You can also try our Full Width Background Slider Wordpress theme <a title="Analytical full Width Slider WordPress theme" href="http://www.sketchthemes.com/themes/analytical-full-width-responsive-wordpress-theme/?ref=wp"> Analytical full Width Slider WordPress theme</a> 
 
 
 == Upgrade notice ==
