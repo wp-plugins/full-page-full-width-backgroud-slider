@@ -14,6 +14,10 @@ jQuery(document).ready(function(){
 		if(jQuery("#fwbslider_post_metas #fwb_disable").is(':checked')){jQuery('#fwbslider_post_metas  .fwbslider_disable').slideUp();jQuery("#fwbslider_post_metas #fwb_check").prop("checked", false);}
 		else{jQuery('#fwbslider_post_metas  .fwbslider_disable').slideDown();}
 	});
+	
+	jQuery('.fwblite-wrapper #mce-EMAIL').focus(function(){
+		jQuery(this).css({'border-color':'#777','color':'#000','background':'transparent'});
+	});
 
 /*-- Upload image jquery start 
 --------------------------------------------*/
@@ -46,3 +50,18 @@ jQuery(document).ready(function(){
 /*color picker jquery end*/
 
 });
+
+function fwblite_wp_jsvalid(){
+	var reg= /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+	var a  = document.getElementById('mce-EMAIL').value;
+	if( a == ""){
+		jQuery('#mce-EMAIL').css({'border-color':'red','color':'red'});
+		return false;
+	}else{
+		if(reg.test(a)==false){
+			jQuery('#mce-EMAIL').css({'border-color':'red','color':'red','background':'#F7DAD9'});
+			return false;
+		}	
+	}		
+	return true;
+}

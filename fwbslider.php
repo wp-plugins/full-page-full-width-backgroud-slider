@@ -4,7 +4,7 @@ Plugin Name:Full Width Background Slider
 Plugin URI: http://www.wpfruits.com/downloads/wp-plugins/full-page-full-width-background-slider-plugin-for-wordpress/
 Description: This plugin will generate full width background slider for individual page and post with the help of custom fields..
 Author: Nishant Jain, rahulbrilliant2004, tikendramaitry
-Version: 1.1.0
+Version: 1.2.0
 Author URI: http://www.wpfruits.com/
 */
 // ----------------------------------------------------------------------------------
@@ -13,6 +13,8 @@ Author URI: http://www.wpfruits.com/
 include_once('admin/fwbups.php');
 add_action('admin_init', 'fwbslider_backend_scripts');
 add_action('wp_enqueue_scripts', 'fwbslider_frontend_scripts');
+
+define('FWBLITE_URL', plugin_dir_url(__FILE__));
 
 function fwbslider_backend_scripts() {
 	if(is_admin()){
@@ -58,7 +60,7 @@ include_once('admin/fwbups.php');
 //---------------------------------------------------------------------------------------------------------------------------------------
 add_action('admin_menu', 'fwbslider_plugin_admin_menu');
 function fwbslider_plugin_admin_menu() {
-     add_menu_page('fwbslider', 'FWB Slider','administrator', 'fwbslider', 'fwbslider_backend_menu', plugins_url('images/icon.png',__FILE__));
+     add_menu_page('FWB Slider Page', 'FWB Slider','administrator', 'fwbslider', 'fwbslider_backend_menu', plugins_url('images/icon.png',__FILE__));
 }
 
 //This function will create new database fields with default values
@@ -66,20 +68,35 @@ function fwbslider_defaults(){
 	    $default = array(
 		'fwbBgChkbox'=>0,
 		'fwbBgcolor'=>'#F7D2D2',
-		'fwbslide1' => plugins_url('images/slide1.jpg',__FILE__),
-        'fwbslide2' => plugins_url('images/slide2.jpg',__FILE__),
-    	'fwbslide3' => plugins_url('images/slide3.jpg',__FILE__),
-		'fwbslide4' => plugins_url('images/slide4.jpg',__FILE__),
-		'fwbslide5' => plugins_url('images/slide5.jpg',__FILE__),
-		'fwbslide6' => plugins_url('images/slide6.jpg',__FILE__)
+		'fwbslide1' => plugins_url('inc/images/slide1.jpg',__FILE__),
+        'fwbslide2' => plugins_url('inc/images/slide2.jpg',__FILE__),
+    	'fwbslide3' => plugins_url('inc/images/slide3.jpg',__FILE__),
+		'fwbslide4' => plugins_url('inc/images/slide4.jpg',__FILE__),
+		'fwbslide5' => plugins_url('inc/images/slide5.jpg',__FILE__),
+		'fwbslide6' => plugins_url('inc/images/slide6.jpg',__FILE__)
     );
 return $default;
 }
-function fwbslider_plugin_install() {
-    add_option('fwbslider_options', fwbslider_defaults());
-}	
+
 // Runs when plugin is activated and creates new database field
 register_activation_hook(__FILE__,'fwbslider_plugin_install');
+add_action('admin_init', 'fwbs_plugin_redirect');
+
+function fwbs_plugin_activate() {
+    add_option('fwbs_plugin_do_activation_redirect', true);
+}
+
+function fwbs_plugin_redirect() {
+    if (get_option('fwbs_plugin_do_activation_redirect', false)) {
+        delete_option('fwbs_plugin_do_activation_redirect');
+        wp_redirect('admin.php?page=fwbslider');
+    }
+}
+
+function fwbslider_plugin_install() {
+    add_option('fwbslider_options', fwbslider_defaults());
+	fwbs_plugin_activate();
+}	
 
 
 // update the fwbslider options
@@ -108,8 +125,226 @@ wp_nonce_field('update-options'); $options = get_option('fwbslider_options');
 ?>
 	<div class="wrap">
 	<div id="icon-themes" class="icon32"></div>
-	<h2><?php _e('Full Width Background Slider '.fwbslider_get_version().' Setting','fwbslider'); ?></h2>
+	<h2><?php _e('Full Width Background Slider '.fwbslider_get_version().' Settings','fwbslider'); ?></h2>
 	</div>
+	
+	<div class="fwblite-wrapper">
+	
+		<!-- WP-Banner Starts Here -->
+		<div id="wp_banner">
+			<!-- Top Section Starts Here -->
+			<div class="top_section">
+				<!-- Begin MailChimp Signup Form -->
+				<link type="text/css" rel="stylesheet" href="http://cdn-images.mailchimp.com/embedcode/classic-081711.css">
+				<style type="text/css">
+					#mc_embed_signup{ clear:left; font:14px Helvetica,Arial,sans-serif; }
+					/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+					   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+				</style>
+				<div id="mc_embed_signup">
+					<form novalidate="" target="_blank" class="validate" name="mc-embedded-subscribe-form" id="mc-embedded-subscribe-form" method="post" action="http://wpfruits.us6.list-manage.com/subscribe/post?u=166c9fed36fb93e9202b68dc3&amp;id=bea82345ae">
+						<div class="mc-field-group">
+							<input type="email" id="mce-EMAIL" class="required email" name="EMAIL" value="" placeholder="Our Newsletter Just Enter Your Email Here" />
+							<input type="submit" class="button" id="mc-embedded-subscribe" name="subscribe" value="" onclick="return fwblite_wp_jsvalid();">
+							<div style="clear:both;"></div>
+						</div>
+						<div class="clear" id="mce-responses">
+							<div style="display:none" id="mce-error-response" class="response"></div>
+							<div style="display:none" id="mce-success-response" class="response"></div>
+						</div>	
+						
+					</form>
+				</div>
+				<script type="text/javascript">
+					var fnames = new Array();var ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';
+					try {
+						var jqueryLoaded=jQuery;
+						jqueryLoaded=true;
+					} catch(err) {
+						var jqueryLoaded=false;
+					}
+					var head= document.getElementsByTagName('head')[0];
+					if (!jqueryLoaded) {
+						var script = document.createElement('script');
+						script.type = 'text/javascript';
+						script.src = 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js';
+						head.appendChild(script);
+						if (script.readyState &amp;&amp; script.onload!==null){
+							script.onreadystatechange= function () {
+								  if (this.readyState == 'complete') mce_preload_check();
+							}    
+						}
+					}
+					var script = document.createElement('script');
+					script.type = 'text/javascript';
+					script.src = 'http://downloads.mailchimp.com/js/jquery.form-n-validate.js';
+					head.appendChild(script);
+					var err_style = '';
+					try{
+						err_style = mc_custom_error_style;
+					} catch(e){
+						err_style = '#mc_embed_signup input.mce_inline_error{border-color:#6B0505;} #mc_embed_signup div.mce_inline_error{margin: 0 0 1em 0; padding: 5px 10px; background-color:#6B0505; font-weight: bold; z-index: 1; color:#fff;}';
+					}
+					var head= document.getElementsByTagName('head')[0];
+					var style= document.createElement('style');
+					style.type= 'text/css';
+					if (style.styleSheet) {
+						style.styleSheet.cssText = err_style;
+					} else {
+						style.appendChild(document.createTextNode(err_style));
+					}
+					head.appendChild(style);
+					setTimeout('mce_preload_check();', 250);
+
+					var mce_preload_checks = 0;
+					function mce_preload_check(){
+						if (mce_preload_checks&gt;40) return;
+						mce_preload_checks++;
+						try {
+							var jqueryLoaded=jQuery;
+						} catch(err) {
+							setTimeout('mce_preload_check();', 250);
+							return;
+						}
+						try {
+							var validatorLoaded=jQuery("#fake-form").validate({});
+						} catch(err) {
+							setTimeout('mce_preload_check();', 250);
+							return;
+						}
+						mce_init_form();
+					}
+					function mce_init_form()
+					{
+						jQuery(document).ready( function($) 
+						{
+						  var options = { errorClass: 'mce_inline_error', errorElement: 'div', onkeyup: function(){}, onfocusout:function(){}, onblur:function(){}  };
+						  var mce_validator = $("#mc-embedded-subscribe-form").validate(options);
+						  $("#mc-embedded-subscribe-form").unbind('submit');//remove the validator so we can get into beforeSubmit on the ajaxform, which then calls the validator
+						  options = { url: 'http://wpfruits.us6.list-manage.com/subscribe/post-json?u=166c9fed36fb93e9202b68dc3&amp;id=bea82345ae&amp;c=?', type: 'GET', dataType: 'json', contentType: "application/json; charset=utf-8",
+										beforeSubmit: function(){
+											$('#mce_tmp_error_msg').remove();
+											$('.datefield','#mc_embed_signup').each(
+												function(){
+													var txt = 'filled';
+													var fields = new Array();
+													var i = 0;
+													$(':text', this).each(
+														function(){
+															fields[i] = this;
+															i++;
+														});
+													$(':hidden', this).each(
+														function(){
+															var bday = false;
+															if (fields.length == 2){
+																bday = true;
+																fields[2] = {'value':1970};//trick birthdays into having years
+															}
+															if ( fields[0].value=='MM' &amp;&amp; fields[1].value=='DD' &amp;&amp; (fields[2].value=='YYYY' || (bday &amp;&amp; fields[2].value==1970) ) ){
+																this.value = '';
+															} else if ( fields[0].value=='' &amp;&amp; fields[1].value=='' &amp;&amp; (fields[2].value=='' || (bday &amp;&amp; fields[2].value==1970) ) ){
+																this.value = '';
+															} else {
+																if (/\[day\]/.test(fields[0].name)){
+																	this.value = fields[1].value+'/'+fields[0].value+'/'+fields[2].value;									        
+																} else {
+																	this.value = fields[0].value+'/'+fields[1].value+'/'+fields[2].value;
+																}
+															}
+														});
+												});
+											return mce_validator.form();
+										}, 
+										success: mce_success_cb
+									};
+						  $('#mc-embedded-subscribe-form').ajaxForm(options);
+
+						});
+					}
+					function mce_success_cb(resp){
+						$('#mce-success-response').hide();
+						$('#mce-error-response').hide();
+						if (resp.result=="success"){
+							$('#mce-'+resp.result+'-response').show();
+							$('#mce-'+resp.result+'-response').html(resp.msg);
+							$('#mc-embedded-subscribe-form').each(function(){
+								this.reset();
+							});
+						} else {
+							var index = -1;
+							var msg;
+							try {
+								var parts = resp.msg.split(' - ',2);
+								if (parts[1]==undefined){
+									msg = resp.msg;
+								} else {
+									i = parseInt(parts[0]);
+									if (i.toString() == parts[0]){
+										index = parts[0];
+										msg = parts[1];
+									} else {
+										index = -1;
+										msg = resp.msg;
+									}
+								}
+							} catch(e){
+								index = -1;
+								msg = resp.msg;
+							}
+							try{
+								if (index== -1){
+									$('#mce-'+resp.result+'-response').show();
+									$('#mce-'+resp.result+'-response').html(msg);            
+								} else {
+									err_id = 'mce_tmp_error_msg';
+									html = '&lt;div id="'+err_id+'" style="'+err_style+'"&gt; '+msg+'&lt;/div&gt;';
+									
+									var input_id = '#mc_embed_signup';
+									var f = $(input_id);
+									if (ftypes[index]=='address'){
+										input_id = '#mce-'+fnames[index]+'-addr1';
+										f = $(input_id).parent().parent().get(0);
+									} else if (ftypes[index]=='date'){
+										input_id = '#mce-'+fnames[index]+'-month';
+										f = $(input_id).parent().parent().get(0);
+									} else {
+										input_id = '#mce-'+fnames[index];
+										f = $().parent(input_id).get(0);
+									}
+									if (f){
+										$(f).append(html);
+										$(input_id).focus();
+									} else {
+										$('#mce-'+resp.result+'-response').show();
+										$('#mce-'+resp.result+'-response').html(msg);
+									}
+								}
+							} catch(e){
+								$('#mce-'+resp.result+'-response').show();
+								$('#mce-'+resp.result+'-response').html(msg);
+							}
+						}
+					}
+
+				</script>
+				<!--End mc_embed_signup-->
+			</div>
+			<!-- Top Section Ends Here -->
+			
+			<!-- Bottom Section Starts Here -->
+			<div class="bot_section">
+				<a href="http://www.wpfruits.com/" class="wplogo" target="_blank" title="WFruits.com"></a>
+				<a href="https://www.facebook.com/pages/WPFruitscom/443589065662507" class="fbicon" target="_blank" title="Facebook"></a>
+				<a href="http://www.twitter.com/wpfruits" class="twicon" target="_blank" title="Twitter"></a>
+				<div style="clear:both;"></div>
+			</div>
+			<!-- Bottom Section Ends Here -->
+		</div>
+		<!-- WP-Banner Ends Here -->
+	
+	</div>
+	
 	
 	<div style="width:700px;">
 		
@@ -155,20 +390,20 @@ wp_nonce_field('update-options'); $options = get_option('fwbslider_options');
 							<tr><th><label for="alloverlay"><?php _e('Display Overlay:','fwbslider'); ?></label></th><td>&nbsp;<label for="alloverlay"><input id="alloverlay" type="checkbox"  value="true" />&nbsp;<?php _e('Check it, if you want overlay effect.','fwbslider') ?></label></td></tr>		
 							<tr><th><label><?php _e('Set Overlay Effect:','fwbslider'); ?></label></th>
 								<td class="clearfix">
-									<label class="fwb_rdlb" for="fwe1" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/01.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/01.png"){ echo "checked";} ?> value="images/overlay/01.png" id="fwe1" ></label>
-									<label class="fwb_rdlb" for="fwe2" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/02.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/02.png"){ echo "checked";} ?> value="images/overlay/02.png" id="fwe2" ></label>
-									<label class="fwb_rdlb" for="fwe3" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/03.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/03.png"){ echo "checked";} ?> value="images/overlay/03.png" id="fwe3" ></label>
-									<label class="fwb_rdlb" for="fwe4" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/04.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/04.png"){ echo "checked";} ?> value="images/overlay/04.png" id="fwe4" ></label>
-									<label class="fwb_rdlb" for="fwe5" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/05.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/05.png"){ echo "checked";} ?> value="images/overlay/05.png" id="fwe5" ></label>
-									<label class="fwb_rdlb" for="fwe6" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/06.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/06.png"){ echo "checked";} ?> value="images/overlay/06.png" id="fwe6" ></label>
-									<label class="fwb_rdlb" for="fwe7" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/07.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/07.png"){ echo "checked";} ?> value="images/overlay/07.png" id="fwe7" ></label>
-									<label class="fwb_rdlb" for="fwe8" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/08.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/08.png"){ echo "checked";} ?> value="images/overlay/08.png" id="fwe8" ></label>
-									<label class="fwb_rdlb" for="fwe9" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/09.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/09.png"){ echo "checked";} ?> value="images/overlay/09.png" id="fwe9" ></label>
-									<label class="fwb_rdlb" for="fwe10" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/10.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/10.png"){ echo "checked";} ?> value="images/overlay/10.png" id="fwe10" ></label>
-									<label class="fwb_rdlb" for="fwe11" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/11.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/11.png"){ echo "checked";} ?> value="images/overlay/11.png" id="fwe11" ></label>
-									<label class="fwb_rdlb" for="fwe12" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/12.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/12.png"){ echo "checked";} ?> value="images/overlay/12.png" id="fwe12" ></label>
-									<label class="fwb_rdlb" for="fwe13" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/13.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/13.png"){ echo "checked";} ?> value="images/overlay/13.png" id="fwe13" ></label>
-									<label class="fwb_rdlb" for="fwe14" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/14.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/14.png"){ echo "checked";} ?> value="images/overlay/14.png" id="fwe14" ></label>
+									<label class="fwb_rdlb" for="fwe1" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/01.png');"><input type="radio" id="fwe1" ></label>
+									<label class="fwb_rdlb" for="fwe2" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/02.png');"><input type="radio" id="fwe2" ></label>
+									<label class="fwb_rdlb" for="fwe3" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/03.png');"><input type="radio" id="fwe3" ></label>
+									<label class="fwb_rdlb" for="fwe4" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/04.png');"><input type="radio" id="fwe4" ></label>
+									<label class="fwb_rdlb" for="fwe5" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/05.png');"><input type="radio" id="fwe5" ></label>
+									<label class="fwb_rdlb" for="fwe6" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/06.png');"><input type="radio" id="fwe6" ></label>
+									<label class="fwb_rdlb" for="fwe7" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/07.png');"><input type="radio" id="fwe7" ></label>
+									<label class="fwb_rdlb" for="fwe8" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/08.png');"><input type="radio" id="fwe8" ></label>
+									<label class="fwb_rdlb" for="fwe9" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/09.png');"><input type="radio" id="fwe9" ></label>
+									<label class="fwb_rdlb" for="fwe10" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/10.png');"><input type="radio" id="fwe10" ></label>
+									<label class="fwb_rdlb" for="fwe11" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/11.png');"><input type="radio" id="fwe11" ></label>
+									<label class="fwb_rdlb" for="fwe12" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/12.png');"><input type="radio" id="fwe12" ></label>
+									<label class="fwb_rdlb" for="fwe13" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/13.png');"><input type="radio" id="fwe13" ></label>
+									<label class="fwb_rdlb" for="fwe14" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/14.png');"><input type="radio" id="fwe14" ></label>
 								</td>
 							</tr>
 						</table>
@@ -213,7 +448,7 @@ wp_nonce_field('update-options'); $options = get_option('fwbslider_options');
 			</form>
 		</div>
 		
-		<iframe frameborder="1" class="fwblite_iframe" src="http://www.sketchthemes.com/sketch-updates/plugin-updates/fwb-lite/fwb-lite.php" width="250px" height="470px" scrolling="no" ></iframe> 		
+		<iframe frameborder="1" class="fwblite_iframe" src="http://www.sketchthemes.com/sketch-updates/plugin-updates/fwb-lite/fwb-lite.php" width="200px" height="500px" scrolling="no" ></iframe> 		
 		
 	</div>
 <?php
@@ -305,20 +540,20 @@ function fwbslider_post_meta_box_add()
 						<tr><th><label for="alloverlay"><?php _e('Display Overlay:','fwbslider'); ?></label></th><td>&nbsp;<label for="alloverlay"><input id="alloverlay" type="checkbox"  value="true" />&nbsp;<?php _e('Check it, if you want overlay effect.','fwbslider') ?></label></td></tr>		
 						<tr><th><label><?php _e('Set Overlay Effect:','fwbslider'); ?></label></th>
 							<td class="clearfix">
-								<label class="fwb_rdlb" for="fwe1" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/01.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/01.png"){ echo "checked";} ?> value="images/overlay/01.png" id="fwe1" ></label>
-								<label class="fwb_rdlb" for="fwe2" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/02.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/02.png"){ echo "checked";} ?> value="images/overlay/02.png" id="fwe2" ></label>
-								<label class="fwb_rdlb" for="fwe3" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/03.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/03.png"){ echo "checked";} ?> value="images/overlay/03.png" id="fwe3" ></label>
-								<label class="fwb_rdlb" for="fwe4" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/04.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/04.png"){ echo "checked";} ?> value="images/overlay/04.png" id="fwe4" ></label>
-								<label class="fwb_rdlb" for="fwe5" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/05.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/05.png"){ echo "checked";} ?> value="images/overlay/05.png" id="fwe5" ></label>
-								<label class="fwb_rdlb" for="fwe6" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/06.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/06.png"){ echo "checked";} ?> value="images/overlay/06.png" id="fwe6" ></label>
-								<label class="fwb_rdlb" for="fwe7" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/07.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/07.png"){ echo "checked";} ?> value="images/overlay/07.png" id="fwe7" ></label>
-								<label class="fwb_rdlb" for="fwe8" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/08.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/08.png"){ echo "checked";} ?> value="images/overlay/08.png" id="fwe8" ></label>
-								<label class="fwb_rdlb" for="fwe9" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/09.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/09.png"){ echo "checked";} ?> value="images/overlay/09.png" id="fwe9" ></label>
-								<label class="fwb_rdlb" for="fwe10" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/10.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/10.png"){ echo "checked";} ?> value="images/overlay/10.png" id="fwe10" ></label>
-								<label class="fwb_rdlb" for="fwe11" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/11.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/11.png"){ echo "checked";} ?> value="images/overlay/11.png" id="fwe11" ></label>
-								<label class="fwb_rdlb" for="fwe12" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/12.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/12.png"){ echo "checked";} ?> value="images/overlay/12.png" id="fwe12" ></label>
-								<label class="fwb_rdlb" for="fwe13" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/13.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/13.png"){ echo "checked";} ?> value="images/overlay/13.png" id="fwe13" ></label>
-								<label class="fwb_rdlb" for="fwe14" style="background:#e7e7e7 url('<?php echo plugins_url('',__FILE__) ?>/images/overlay/14.png');"><input type="radio" <?php if($options['fwboveffect'] == "images/overlay/14.png"){ echo "checked";} ?> value="images/overlay/14.png" id="fwe14" ></label>
+								<label class="fwb_rdlb" for="fwe1" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/01.png');"><input type="radio" id="fwe1" ></label>
+								<label class="fwb_rdlb" for="fwe2" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/02.png');"><input type="radio" id="fwe2" ></label>
+								<label class="fwb_rdlb" for="fwe3" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/03.png');"><input type="radio" id="fwe3" ></label>
+								<label class="fwb_rdlb" for="fwe4" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/04.png');"><input type="radio" id="fwe4" ></label>
+								<label class="fwb_rdlb" for="fwe5" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/05.png');"><input type="radio" id="fwe5" ></label>
+								<label class="fwb_rdlb" for="fwe6" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/06.png');"><input type="radio" id="fwe6" ></label>
+								<label class="fwb_rdlb" for="fwe7" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/07.png');"><input type="radio" id="fwe7" ></label>
+								<label class="fwb_rdlb" for="fwe8" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/08.png');"><input type="radio" id="fwe8" ></label>
+								<label class="fwb_rdlb" for="fwe9" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/09.png');"><input type="radio" id="fwe9" ></label>
+								<label class="fwb_rdlb" for="fwe10" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/10.png');"><input type="radio" id="fwe10" ></label>
+								<label class="fwb_rdlb" for="fwe11" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/11.png');"><input type="radio" id="fwe11" ></label>
+								<label class="fwb_rdlb" for="fwe12" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/12.png');"><input type="radio" id="fwe12" ></label>
+								<label class="fwb_rdlb" for="fwe13" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/13.png');"><input type="radio" id="fwe13" ></label>
+								<label class="fwb_rdlb" for="fwe14" style="background:#e7e7e7 url('<?php echo FWBLITE_URL ?>/images/overlay/14.png');"><input type="radio" id="fwe14" ></label>
 							</td>
 						</tr>
 					</table>
@@ -389,85 +624,25 @@ function fwbslider_post_meta_box_save($post_id)
 
 //------------- FUNCTION TO CALL SLIDER -------------------------------------------------------
 
-add_action('wp_footer','fwbslider');
-function fwbslider(){
-		$options = get_option('fwbslider_options'); 
-		global $post;
-		$custom = get_post_custom($post->ID);
-		$fwb_disable = $custom["fwb_disable"][0];
-		$fwb_check = $custom["fwb_check"][0];
-		$fwbBgChkbox = $custom["fwbBgChkbox"][0];
-		$fwbBgcolor = $custom["fwbBgcolor"][0];
-		$fwbslide1 = $custom["fwbslide1"][0];
-		$fwbslide2 = $custom["fwbslide2"][0];
-		$fwbslide3 = $custom["fwbslide3"][0];
-		$fwbslide4 = $custom["fwbslide4"][0];
-		$fwbslide5 = $custom["fwbslide5"][0];
-		$fwbslide6 = $custom["fwbslide6"][0];
-		
-		$fwbBgChkbox_all = $options["fwbBgChkbox"];
-		$fwbBgcolor_all = $options["fwbBgcolor"];
-		$fwbslide1_all = $options["fwbslide1"];
-		$fwbslide2_all = $options["fwbslide2"];
-		$fwbslide3_all = $options["fwbslide3"];
-		$fwbslide4_all = $options["fwbslide4"];
-		$fwbslide5_all = $options["fwbslide5"];
-		$fwbslide6_all = $options["fwbslide6"];
-		
-		$from_this = "http://wpfruits.com/full-width-background-slider/?utm_refs=".$_SERVER['HTTP_REFERER'];
-
-	if($fwb_check && !$fwb_disable && !is_home()){
+function fwb_getAll_options(){
+	global $from_this;
+	$options = get_option('fwbslider_options'); 
+	$fwbBgChkbox_all = $options["fwbBgChkbox"];
+	$fwbBgcolor_all = $options["fwbBgcolor"];
+	$fwbslide1_all = $options["fwbslide1"];
+	$fwbslide2_all = $options["fwbslide2"];
+	$fwbslide3_all = $options["fwbslide3"];
+	$fwbslide4_all = $options["fwbslide4"];
+	$fwbslide5_all = $options["fwbslide5"];
+	$fwbslide6_all = $options["fwbslide6"];
 	?>
-		<!-- FWB Slider Start here -->
-		<?php if(!$fwbBgChkbox){ ?>
-			<script type="text/javascript">
-				jQuery(document).ready(function(){
-					jQuery.fwbslider('#fwbslider', {'delay':5000, 'fadeSpeed': 2000});
-				});
-			</script>
-		<?php } ?>
-	
-		<div id="fwbslider" class="for_only">
-			
-			<?php if($fwbBgChkbox){ ?>
-				<div class="fwb_bgcolor" style="background:<?php echo $fwbBgcolor; ?>;"></div>
-			<?php
-			}//if background color option is checked
-			
-			else{ ?>
-			<?php if($fwbslide1){ ?><img src="<?php echo $fwbslide1; ?>" /><?php } ?>
-			<?php if($fwbslide2){ ?><img src="<?php echo $fwbslide2; ?>" /><?php } ?>
-			<?php if($fwbslide3){ ?><img src="<?php echo $fwbslide3; ?>" /><?php } ?>
-			<?php if($fwbslide4){ ?><img src="<?php echo $fwbslide4; ?>" /><?php } ?>
-			<?php if($fwbslide5){ ?><img src="<?php echo $fwbslide5; ?>" /><?php } ?>
-			<?php if($fwbslide6){ ?><img src="<?php echo $fwbslide6; ?>" /><?php } ?>
-			
-			<?php
-			}
-			?>
-		</div>
-		<a class="fwb_fromthis" target="_blank" href="<?php echo $from_this; ?>" title=""><img src="<?php echo plugins_url('images/FWB-big.png',__FILE__) ?>" /></a>
-		<!-- FWB Slider End here -->
-	<?php
-	}
-	
-	elseif(!$fwb_disable){
-		?>
-		<!-- FWB Slider Start here -->
-		
+	<!-- FWB Lite Slider Start here -->
 		<?php if(!$fwbBgChkbox_all){ ?>
-		<script type="text/javascript">
-			jQuery(document).ready(function(){
-				jQuery.fwbslider('#fwbslider', {'delay':5000, 'fadeSpeed': 2000});
-			});
-		</script>
+			<script type="text/javascript">jQuery(document).ready(function(){jQuery.fwbslider('#fwbslider', {'delay':5000, 'fadeSpeed': 2000});});</script>
 		<?php } ?>
 		
 		<div id="fwbslider" class="for_all">
-
-			<?php if($fwbBgChkbox_all){ ?>
-				<div class="fwb_bgcolor" style="background:<?php echo $fwbBgcolor_all; ?>;"></div>
-			<?php
+			<?php if($fwbBgChkbox_all){ ?><div class="fwb_bgcolor" style="background:<?php echo $fwbBgcolor_all; ?>;"></div><?php
 			}//if background color option is checked
 			
 			else{ ?>
@@ -482,9 +657,72 @@ function fwbslider(){
 			?>
 		</div>
 		<a class="fwb_fromthis" target="_blank" href="<?php echo $from_this; ?>" title=""><img src="<?php echo plugins_url('images/FWB-big.png',__FILE__) ?>" /></a>
-		<!-- FWB Slider End here -->
+		<!-- FWB Lite Slider End here -->
+	<?php
+}
+
+function fwb_getMata_options(){
+	global $from_this;
+	global $post;
+	$custom = get_post_custom($post->ID);
+	$fwb_disable = $custom["fwb_disable"][0];
+	$fwb_check = $custom["fwb_check"][0];
+	$fwbBgChkbox = $custom["fwbBgChkbox"][0];
+	$fwbBgcolor = $custom["fwbBgcolor"][0];
+	$fwbslide1 = $custom["fwbslide1"][0];
+	$fwbslide2 = $custom["fwbslide2"][0];
+	$fwbslide3 = $custom["fwbslide3"][0];
+	$fwbslide4 = $custom["fwbslide4"][0];
+	$fwbslide5 = $custom["fwbslide5"][0];
+	$fwbslide6 = $custom["fwbslide6"][0];
+	
+	if($fwb_check && !$fwb_disable){
+	?>
+		<!-- FWB Lite Slider Start here -->
+			<?php if(!$fwbBgChkbox){ ?>
+				<script type="text/javascript"> jQuery(document).ready(function(){ 	jQuery.fwbslider('#fwbslider', {'delay':5000, 'fadeSpeed': 2000}); }); </script> 	
+			<?php } ?>
+
+			<div id="fwbslider" class="for_only">
+				<?php if($fwbBgChkbox){ ?><div class="fwb_bgcolor" style="background:<?php echo $fwbBgcolor; ?>;"></div>
+				<?php
+				}//if background color option is checked
+				
+				else{ ?>
+					<?php if($fwbslide1){ ?><img src="<?php echo $fwbslide1; ?>" /><?php } ?>
+					<?php if($fwbslide2){ ?><img src="<?php echo $fwbslide2; ?>" /><?php } ?>
+					<?php if($fwbslide3){ ?><img src="<?php echo $fwbslide3; ?>" /><?php } ?>
+					<?php if($fwbslide4){ ?><img src="<?php echo $fwbslide4; ?>" /><?php } ?>
+					<?php if($fwbslide5){ ?><img src="<?php echo $fwbslide5; ?>" /><?php } ?>
+					<?php if($fwbslide6){ ?><img src="<?php echo $fwbslide6; ?>" /><?php } ?>
+				<?php
+				}
+				?>
+			</div>
+			<a class="fwb_fromthis" target="_blank" href="<?php echo $from_this; ?>" title=""><img src="<?php echo plugins_url('images/FWB-big.png',__FILE__) ?>" /></a>
+		<!-- FWB Lite Slider End here -->
 	<?php
 	}
+	elseif(!$fwb_disable){
+		fwb_getAll_options();
+	}
 }
+
+function fwbslider(){
+	global $from_this;
+	$from_this = "http://wpfruits.com/full-width-background-slider/?utm_refs=".$_SERVER['SERVER_NAME'];
+		
+	if(is_home() || is_category() || is_tax() || is_tag() || is_date() || is_author()){
+		fwb_getAll_options();
+	}	
+	elseif(is_page() || is_front_page() && !is_home()){
+		fwb_getMata_options();
+	}
+	elseif(is_single()){
+		fwb_getMata_options();
+	}
+}
+
+add_action('wp_footer','fwbslider');
 //----------------------------------------------------------------------------------------------------
 ?>

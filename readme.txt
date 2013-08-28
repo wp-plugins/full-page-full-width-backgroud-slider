@@ -1,10 +1,10 @@
 === Full Page/ Full width Background Slider===
 Contributors: rahulbrilliant2004, tikendramaitry, Nishant Jain
 Donate link: http://www.wpfruits.com
-Tags: background image slider, full with image slider, Wordpress Full width Background slider plugin, full page background slider, set background full page, Full width Background Image set, Set background Color for Page
+Tags: background slider, slider, full page background slider, set background full page
 Requires at least: 2.8
-Tested up to: 3.5
-Stable tag: 1.1.0
+Tested up to: 3.6
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -19,7 +19,7 @@ A great plugin that allows you to add full page background slider to your websit
  -   Easily manageable back-end.
  -   Comes with 6 Great Backgrounds ready to use
  -   Last but not the least its FREE
- -   Set Background color for posts and pages. Now instead of image you can set the background color for the image too. 
+
 
 Read more instructions about how to use here http://www.wpfruits.com/downloads/wp-plugins/full-page-full-width-background-slider-plugin-for-wordpress/
 
@@ -31,11 +31,7 @@ Read more instructions about how to use here http://www.wpfruits.com/downloads/w
  -   Easily manageable back-end.
  -   Comes with 6 Great Backgrounds ready to use
  -   Last but not the least its FREE
- -   Set Background color for posts and pages. Now instead of image you can set the background color for the image too. 
 
-This is a Plugin from <a href="http://www.wpfruits.com/?ref=wpl"> WPFRUITS </a>
-
-You can also try our Full Width Background Slider Wordpress theme <a title="Analytical full Width Slider WordPress theme" href="http://www.sketchthemes.com/themes/analytical-full-width-responsive-wordpress-theme/?ref=wp"> Analytical full Width Slider WordPress theme</a> 
 
 == Installation ==
     
@@ -50,7 +46,6 @@ http://www.wpfruits.com/wp-content/uploads/2012/08/full-page-back-ground-slider-
    -So you can disbaled the slider for a particular post or page or you can enable it just for the post of page or if you want to add a single image to the background of the page just enter one value in the first box.
 http://www.wpfruits.com/wp-content/uploads/2012/08/Full-page-background-slider.png
 
-You can also try our Full Width Background Slider Wordpress theme <a title="Analytical full Width Slider WordPress theme" href="http://www.sketchthemes.com/themes/analytical-full-width-responsive-wordpress-theme/?ref=wp"> Analytical full Width Slider WordPress theme</a> 
 
 
 For More Details please visit http://www.wpfruits.com/downloads/wp-plugins/full-page-full-width-background-slider-plugin-for-wordpress/
@@ -66,22 +61,32 @@ An answer to that question.
 2. Admin Settings Page.
 3. Post/Page Setting Options.
 
+
 == Changelog ==
-Version 1.0.3
-Fixed some issues with jquery. 
 
-Version 1.0.7
-Added browse button to add the slide images.
-Updated the slider admin panel look.
 
-Version 1.0.9
-Fixed Media upload image issue with wordpress 3.5 version
+=Version 1.2.0=
+Added new code to display global slider on categories, tags, archives and authors page.
+Fixed few style and jquery issues.
+Tested plugin upto WordPress 3.6.
+Now Slider slide images moved to "inc/images" folder.
 
-Version 1.1.0
+
+=Version 1.1.0=
 Added Slider background color option in admin panel.
 Fixed some issues with wordpress 3.5 version.
 
-You can also try our Full Width Background Slider Wordpress theme <a title="Analytical full Width Slider WordPress theme" href="http://www.sketchthemes.com/themes/analytical-full-width-responsive-wordpress-theme/?ref=wp"> Analytical full Width Slider WordPress theme</a> 
+=Version 1.0.9=
+Fixed Media upload image issue with wordpress 3.5 version
+
+=Version 1.0.7=
+Added browse button to add the slide images.
+Updated the slider admin panel look.
+
+=Version 1.0.3=
+Fixed some issues with jquery. 
+
+
 
 
 == Upgrade notice ==
