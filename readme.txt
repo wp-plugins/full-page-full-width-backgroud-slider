@@ -2,9 +2,9 @@
 Contributors: rahulbrilliant2004, tikendramaitry, Nishant Jain
 Donate link: http://www.wpfruits.com
 Tags: background slider, slider, full page background slider, set background full page
-Requires at least: 2.8
-Tested up to: 3.6
-Stable tag: 1.2.0
+Requires at least: 3.0
+Tested up to: 3.8
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,6 +64,9 @@ An answer to that question.
 
 == Changelog ==
 
+=Version 1.2.1=
+Added Slide Duration (delay between slides) option in admin section.
+Compatible with WordPress latest version 3.8.
 
 =Version 1.2.0=
 Added new code to display global slider on categories, tags, archives and authors page.
