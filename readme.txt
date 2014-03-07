@@ -3,8 +3,8 @@ Contributors: rahulbrilliant2004, tikendramaitry, Nishant Jain
 Donate link: http://www.wpfruits.com
 Tags: background slider, slider, full page background slider, set background full page
 Requires at least: 3.0
-Tested up to: 3.8
-Stable tag: 1.2.1
+Tested up to: 3.8.1
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,30 +64,41 @@ An answer to that question.
 
 == Changelog ==
 
+=Version 1.2.2=
+
+* Added Transition Speed (animation speed) option in admin section.
+* Compatible with WordPress latest version 3.8.1.
+
 =Version 1.2.1=
-Added Slide Duration (delay between slides) option in admin section.
-Compatible with WordPress latest version 3.8.
+
+* Added Slide Duration (delay between slides) option in admin section.
+* Compatible with WordPress latest version 3.8.
 
 =Version 1.2.0=
-Added new code to display global slider on categories, tags, archives and authors page.
-Fixed few style and jquery issues.
-Tested plugin upto WordPress 3.6.
-Now Slider slide images moved to "inc/images" folder.
+
+* Added new code to display global slider on categories, tags, archives and authors page.
+* Fixed few style and jquery issues.
+* Tested plugin upto WordPress 3.6.
+* Now Slider slide images moved to "inc/images" folder.
 
 
 =Version 1.1.0=
-Added Slider background color option in admin panel.
-Fixed some issues with wordpress 3.5 version.
+
+* Added Slider background color option in admin panel.
+* Fixed some issues with wordpress 3.5 version.
 
 =Version 1.0.9=
-Fixed Media upload image issue with wordpress 3.5 version
+
+* Fixed Media upload image issue with wordpress 3.5 version
 
 =Version 1.0.7=
-Added browse button to add the slide images.
-Updated the slider admin panel look.
+
+* Added browse button to add the slide images.
+* Updated the slider admin panel look.
 
 =Version 1.0.3=
-Fixed some issues with jquery. 
+
+* Fixed some issues with jquery. 
 
 
 

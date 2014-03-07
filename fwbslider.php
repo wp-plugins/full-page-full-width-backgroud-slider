@@ -4,7 +4,7 @@ Plugin Name:Full Width Background Slider
 Plugin URI: http://www.wpfruits.com/downloads/wp-plugins/full-page-full-width-background-slider-plugin-for-wordpress/
 Description: This plugin will generate full width background slider for individual page and post with the help of custom fields..
 Author: Nishant Jain, rahulbrilliant2004, tikendramaitry
-Version: 1.2.1
+Version: 1.2.2
 Author URI: http://www.wpfruits.com/
 */
 // ----------------------------------------------------------------------------------
@@ -53,8 +53,6 @@ include_once('admin/fwbups.php');
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 
-
-
 //---------------------------------------------------------------------------------------------------------------------------------------
 //------------------- MAIN ADMIN MENU OPTIONS -------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------------------------
@@ -69,6 +67,7 @@ function fwbslider_defaults(){
 		'fwbBgChkbox'=>0,
 		'fwbBgcolor'=>'#F7D2D2',
 		'fwbsduration'=>'5',
+		'fwbstspeed'=>'2',
 		'fwbslide1' => plugins_url('inc/images/slide1.jpg',__FILE__),
         'fwbslide2' => plugins_url('inc/images/slide2.jpg',__FILE__),
     	'fwbslide3' => plugins_url('inc/images/slide3.jpg',__FILE__),
@@ -108,9 +107,10 @@ if(isset($_POST['fwbslider_update'])){
 function fwbslider_updates() {
 	$options = $_POST['fwbslider_options'];
 	    $update_val = array(
-		'fwbBgChkbox'=>$options['fwbBgChkbox'],
-		'fwbBgcolor'=>$options['fwbBgcolor'],
-		'fwbsduration'=>$options['fwbsduration'],
+		'fwbBgChkbox'=> $options['fwbBgChkbox'],
+		'fwbBgcolor'=> $options['fwbBgcolor'],
+		'fwbsduration'=> $options['fwbsduration'],
+		'fwbstspeed'=> $options['fwbstspeed'],
 		'fwbslide1' => $options['fwbslide1'],
 		'fwbslide2' => $options['fwbslide2'],
 		'fwbslide3' => $options['fwbslide3'],
@@ -362,7 +362,6 @@ wp_nonce_field('update-options'); $options = get_option('fwbslider_options');
 						<table class="fwb_proFeature" cellpadding="0" cellspacing="0">
 							<tr style="line-height:22px;"><th colspan="2"><?php _e('These Features comes with PRO Version. To activate, please purchase PRO version.','fwbslider'); ?> <a href="http://www.wpfruits.com/full-width-background-slider/?fwb_ref=back" target="_blank"><?php _e('Click Here to Purchase Plugin.','fwbslider'); ?></a></th></tr>
 						
-							<tr><th><label><?php _e('Transition Speed:','fwbslider'); ?></label> </th><td><input style="width:50px;" type="text"  /> <small>(<b><?php _e('in Seconds','fwbslider'); ?></b>)</small></td></tr>
 							<tr>
 								<th><?php _e("Show Navigation:",'fwbslider'); ?></th>
 								<td><select style="width:70px;"><option value="true">Yes</option><option value="false">No</option></select></td>
@@ -423,8 +422,8 @@ wp_nonce_field('update-options'); $options = get_option('fwbslider_options');
 						</td>
 					</tr>
 					
-					<tr><th><label><?php _e('Slide Duration:','fwbslider'); ?></label> </th><td><input style="width:50px;" name="fwbslider_options[fwbsduration]" type="text" value="<?php if($options['fwbsduration']) echo $options['fwbsduration']; ?>"  /> <small>(<b><?php _e('in Seconds','fwbslider'); ?></b>)</small></td></tr>
-				
+					<tr><th><label><?php _e('Slide Duration','fwbslider'); ?></label> </th><td><input style="width:50px;" name="fwbslider_options[fwbsduration]" type="text" value="<?php if($options['fwbsduration']) echo $options['fwbsduration']; ?>"  /> <small>(<b><?php _e('in Seconds','fwbslider'); ?></b>)</small></td></tr>				
+					<tr><th><label><?php _e('Transition Speed','fwbslider'); ?></label> </th><td><input style="width:50px;" name="fwbslider_options[fwbstspeed]" type="text" value="<?php if($options['fwbstspeed']) echo $options['fwbstspeed']; ?>"  /> <small>(<b><?php _e('in Seconds','fwbslider'); ?></b>)</small></td></tr>
 					<tr><th><label><?php _e('FWB Slide1 URL','fwbslider'); ?></label></th><td><input type="text" class="fwb_uploadimg" name="fwbslider_options[fwbslide1]" value="<?php echo $options['fwbslide1'] ?>" /><input class="fwb_uploadbtn button" type="button" value="Browse.." /></td></tr>
 					<tr><th><label><?php _e('FWB Slide2 URL','fwbslider'); ?></label></th><td><input type="text" class="fwb_uploadimg" name="fwbslider_options[fwbslide2]" value="<?php echo $options['fwbslide2'] ?>" /><input class="fwb_uploadbtn button" type="button" value="Browse.." /></td></tr>
 					<tr><th><label><?php _e('FWB Slide3 URL','fwbslider'); ?></label></th><td><input type="text" class="fwb_uploadimg" name="fwbslider_options[fwbslide3]" value="<?php echo $options['fwbslide3'] ?>" /><input class="fwb_uploadbtn button" type="button" value="Browse.." /></td></tr>
@@ -486,6 +485,7 @@ function fwbslider_post_meta_box_add()
 		$fwbBgChkbox = $custom["fwbBgChkbox"][0];
 		$fwbBgcolor = $custom["fwbBgcolor"][0];
 		$fwbsduration = $custom["fwbsduration"][0];
+		$fwbstspeed = $custom["fwbstspeed"][0];
 		$fwbslide1 = $custom["fwbslide1"][0];
 		$fwbslide2 = $custom["fwbslide2"][0];
 		$fwbslide3 = $custom["fwbslide3"][0];
@@ -514,7 +514,6 @@ function fwbslider_post_meta_box_add()
 					<table class="fwb_proFeature" cellpadding="0" cellspacing="0">
 						<tr style="line-height:22px;"><th colspan="2"><?php _e('These Features comes with PRO Version. To activate, please purchase PRO version.','fwbslider'); ?> <a href="http://www.wpfruits.com/full-width-background-slider/?fwb_ref=back" target="_blank"><?php _e('Click Here to Purchase Plugin.','fwbslider'); ?></a></th></tr>
 					
-						<tr><th><label><?php _e('Transition Speed:','fwbslider'); ?></label> </th><td><input style="width:50px;" type="text"  /> <small>(<b><?php _e('in Seconds','fwbslider'); ?></b>)</small></td></tr>
 						<tr>
 							<th><?php _e("Show Navigation:",'fwbslider'); ?></th>
 							<td><select style="width:70px;"><option value="true">Yes</option><option value="false">No</option></select></td>
@@ -574,7 +573,9 @@ function fwbslider_post_meta_box_add()
 				</td>
 			</tr>
 			
-			<tr><th><label><?php _e('Slide Duration:','fwbslider'); ?></label> </th><td><input style="width:50px;" type="text" name="fwbsduration" value="<?php if($fwbsduration) echo $fwbsduration; ?>"  /> <small>(<b><?php _e('in Seconds','fwbslider'); ?></b>)</small></td></tr>
+			<tr><th><label><?php _e('Slide Duration','fwbslider'); ?></label> </th><td><input style="width:50px;" type="text" name="fwbsduration" value="<?php if($fwbsduration) echo $fwbsduration; ?>"  /> <small>(<b><?php _e('in Seconds','fwbslider'); ?></b>)</small></td></tr>
+			<tr><th><label><?php _e('Transition Speed','fwbslider'); ?></label> </th><td><input style="width:50px;" type="text" name="fwbstspeed" value="<?php if($fwbstspeed) echo $fwbstspeed; ?>"  /> <small>(<b><?php _e('in Seconds','fwbslider'); ?></b>)</small></td></tr>
+			
 			<tr><th width="140px" align="right" ><label><?php _e('FWB Slide1 URL'); ?></label></th><td><input type="text" name="fwbslide1" class="fwb_uploadimg" value="<?php echo $fwbslide1; ?>" /><input class="fwb_uploadbtn button" type="button" value="Browse.." /></td></tr>				
 			<tr><th width="140px" align="right" ><label><?php _e('FWB Slide2 URL'); ?></label></th><td><input type="text" name="fwbslide2" class="fwb_uploadimg" value="<?php echo $fwbslide2; ?>" /><input class="fwb_uploadbtn button" type="button" value="Browse.." /></td></tr>				
 			<tr><th width="140px" align="right" ><label><?php _e('FWB Slide3 URL'); ?></label></th><td><input type="text" name="fwbslide3" class="fwb_uploadimg" value="<?php echo $fwbslide3; ?>" /><input class="fwb_uploadbtn button" type="button" value="Browse.." /></td></tr>				
@@ -616,6 +617,7 @@ function fwbslider_post_meta_box_save($post_id)
 		update_post_meta($post_id, "fwbBgChkbox",$_POST['fwbBgChkbox']);
 		update_post_meta($post_id, "fwbBgcolor",$_POST['fwbBgcolor']);		
 		update_post_meta($post_id, "fwbsduration",$_POST['fwbsduration']);		
+		update_post_meta($post_id, "fwbstspeed",$_POST['fwbstspeed']);		
 		update_post_meta($post_id, "fwbslide1",$_POST['fwbslide1']);
 		update_post_meta($post_id, "fwbslide2",$_POST['fwbslide2']);
 		update_post_meta($post_id, "fwbslide3",$_POST['fwbslide3']);
@@ -635,6 +637,7 @@ function fwb_getAll_options(){
 	$fwbBgChkbox_all = $options["fwbBgChkbox"];
 	$fwbBgcolor_all = $options["fwbBgcolor"];
 	$fwbsduration_all = $options["fwbsduration"];
+	$fwbstspeed_all = $options["fwbstspeed"];
 	$fwbslide1_all = $options["fwbslide1"];
 	$fwbslide2_all = $options["fwbslide2"];
 	$fwbslide3_all = $options["fwbslide3"];
@@ -643,10 +646,11 @@ function fwb_getAll_options(){
 	$fwbslide6_all = $options["fwbslide6"];
 	
 	$fwbsduration_all = (isset($fwbsduration_all) && $fwbsduration_all !="" && $fwbsduration_all !=0) ? $fwbsduration_all*1000 : 5000;
+	$fwbstspeed_all   = (isset($fwbstspeed_all) && $fwbsduration_all !="" && $fwbstspeed_all !=0) ? $fwbstspeed_all*1000 : 2000;
 	?>
 	<!-- FWB Lite Slider Start here -->
 		<?php if(!$fwbBgChkbox_all){ ?>
-			<script type="text/javascript">jQuery(document).ready(function(){jQuery.fwbslider('#fwbslider', {'delay':<?php echo $fwbsduration_all; ?>, 'fadeSpeed': 2000});});</script>
+			<script type="text/javascript">jQuery(document).ready(function(){jQuery.fwbslider('#fwbslider', {'delay':<?php echo $fwbsduration_all; ?>, 'fadeSpeed': <?php echo $fwbstspeed_all; ?>});});</script>
 		<?php } ?>
 		
 		<div id="fwbslider" class="for_all">
@@ -678,6 +682,7 @@ function fwb_getMata_options(){
 	$fwbBgChkbox  = $custom["fwbBgChkbox"][0];
 	$fwbBgcolor   = $custom["fwbBgcolor"][0];
 	$fwbsduration = $custom["fwbsduration"][0];
+	$fwbstspeed = $custom["fwbstspeed"][0];
 	$fwbslide1 = $custom["fwbslide1"][0];
 	$fwbslide2 = $custom["fwbslide2"][0];
 	$fwbslide3 = $custom["fwbslide3"][0];
@@ -686,12 +691,13 @@ function fwb_getMata_options(){
 	$fwbslide6 = $custom["fwbslide6"][0];
 	
 	$fwbsduration = (isset($fwbsduration) && $fwbsduration !="" && $fwbsduration !=0) ? $fwbsduration*1000 : 5000;
+	$fwbstspeed = (isset($fwbstspeed) && $fwbstspeed !="" && $fwbstspeed !=0) ? $fwbstspeed*1000 : 2000;
 	
 	if($fwb_check && !$fwb_disable){
 	?>
 		<!-- FWB Lite Slider Start here -->
 			<?php if(!$fwbBgChkbox){ ?>
-				<script type="text/javascript"> jQuery(document).ready(function(){ 	jQuery.fwbslider('#fwbslider', {'delay':<?php echo $fwbsduration; ?>, 'fadeSpeed': 2000}); }); </script> 	
+				<script type="text/javascript"> jQuery(document).ready(function(){ 	jQuery.fwbslider('#fwbslider', {'delay':<?php echo $fwbsduration; ?>,'fadeSpeed' : <?php echo $fwbstspeed; ?>}); }); </script> 	
 			<?php } ?>
 
 			<div id="fwbslider" class="for_only">
