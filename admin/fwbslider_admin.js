@@ -1,5 +1,5 @@
-/*-- FWB Slider Admin Script
--------------------------------------------------------*/
+/*-- FWB SLIDER ADMIN SCRIPT
+------------------------------*/
 jQuery(document).ready(function(){
 
 	if(jQuery("#fwbslider_post_metas #fwb_disable").is(':checked')){jQuery('#fwbslider_post_metas  .fwbslider_disable').hide();}

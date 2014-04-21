@@ -3,8 +3,8 @@ Contributors: rahulbrilliant2004, tikendramaitry, Nishant Jain
 Donate link: http://www.wpfruits.com
 Tags: background slider, slider, full page background slider, set background full page
 Requires at least: 3.0
-Tested up to: 3.8.1
-Stable tag: 1.2.2
+Tested up to: 3.9
+Stable tag: 1.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -63,6 +63,11 @@ An answer to that question.
 
 
 == Changelog ==
+
+=Version 1.2.3=
+
+* Fixed few plugin admin style issues.
+* Compatible with WordPress latest version 3.9.
 
 =Version 1.2.2=
 

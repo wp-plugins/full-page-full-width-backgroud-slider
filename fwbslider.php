@@ -4,7 +4,7 @@ Plugin Name:Full Width Background Slider
 Plugin URI: http://www.wpfruits.com/downloads/wp-plugins/full-page-full-width-background-slider-plugin-for-wordpress/
 Description: This plugin will generate full width background slider for individual page and post with the help of custom fields..
 Author: Nishant Jain, rahulbrilliant2004, tikendramaitry
-Version: 1.2.2
+Version: 1.2.3
 Author URI: http://www.wpfruits.com/
 */
 // ----------------------------------------------------------------------------------

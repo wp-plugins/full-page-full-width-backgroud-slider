@@ -1,3 +1,7 @@
+/*
+FWB SLIDER JQUERY
+*/
+
 (function($){
     $.fwbslider = function(selector, settings){
         // settings
